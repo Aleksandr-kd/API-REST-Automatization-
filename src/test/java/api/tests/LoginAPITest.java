@@ -47,7 +47,7 @@ public class LoginAPITest {
         Assert.assertNotNull(loginResponse.getToken());
         Assert.assertEquals(loginResponse.getEmail(),"als.dr@gmail.com");
         Assert.assertEquals(loginResponse.getId(), 2079);
-        response.then().statusCode(200);
+        Assert.assertEquals(response.getStatusCode(), 200);
 
     }
 }
