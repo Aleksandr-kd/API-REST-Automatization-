@@ -9,7 +9,6 @@ public class ForgotPasswordTest {
 
     @Test(description = "Восстановление пароля пользователя")
     public void createAccountTest() {
-
         AuthService authService = new AuthService();
         Response response = authService.forgotPassword("alsd@mcmc.ru");
         System.out.println(response.asPrettyString());

@@ -1,0 +1,38 @@
+package api.tests;
+
+import api.base.AuthService;
+import api.base.UserProfileManagementService;
+import api.models.request.LoginRequest;
+import api.models.request.ProfileRequest;
+import api.models.response.LoginResponse;
+import api.models.response.UserProfileResponse;
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class UpdateProfileTest {
+
+    @Test(description = "Обновление профиля пользователя")
+    public void UpdateProfileTest() {
+        AuthService authService = new AuthService();
+        Response response = authService.login(new LoginRequest("uday888", "uday888"));
+        LoginResponse loginResponse = response.as(LoginResponse.class);
+
+        UserProfileManagementService userProfileManagementService = new UserProfileManagementService();
+        response = userProfileManagementService.getProfile(loginResponse.getToken());
+        System.out.println(response.asPrettyString());
+        UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);
+        Assert.assertEquals(userProfileResponse.getUsername(), "uday888");
+
+        ProfileRequest profileRequest = new ProfileRequest.Builder()
+                .firstName("Aswer")
+                .lastName("rtyuqwerty")
+                .email("Als@hngmail.com")
+                .mobileNumber("1234567890")
+                .build();
+
+        response = userProfileManagementService.updateProfile(loginResponse.getToken(), profileRequest);
+        System.out.println(response.asPrettyString());
+    }
+
+}

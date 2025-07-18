@@ -5,36 +5,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
 @Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignUpRequest {
-    private String username;
-    private String password;
+public class ProfileRequest {
     private String email;
     private String firstName;
     private String lastName;
     private String mobileNumber;
 
     public static class Builder {
-        private String username;
-        private String password;
         private String email;
         private String firstName;
         private String lastName;
         private String mobileNumber;
 
-        public Builder userName(String username) {
-            this.username = username;
-            return this;
-        }
-
-        public Builder password(String password) {
-            this.password = password;
-            return this;
-        }
 
         public Builder email(String email) {
             this.email = email;
@@ -56,9 +42,8 @@ public class SignUpRequest {
             return this;
         }
 
-        public SignUpRequest build(){
-            return new SignUpRequest(username, password, email, firstName, lastName, mobileNumber);
+        public ProfileRequest build(){
+            return new ProfileRequest(email, firstName, lastName, mobileNumber);
         }
     }
-
 }
