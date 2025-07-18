@@ -39,5 +39,4 @@ public class BaseService {
     protected Response postRequest(String baseUrl, Object payload, String endpoint){
         return requestSpecification.baseUri(baseUrl).contentType(ContentType.JSON).body(payload).post(endpoint);
     }
-
 }

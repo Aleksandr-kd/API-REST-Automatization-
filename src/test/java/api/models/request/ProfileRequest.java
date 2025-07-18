@@ -21,7 +21,6 @@ public class ProfileRequest {
         private String lastName;
         private String mobileNumber;
 
-
         public Builder email(String email) {
             this.email = email;
             return this;
@@ -42,7 +41,7 @@ public class ProfileRequest {
             return this;
         }
 
-        public ProfileRequest build(){
+        public ProfileRequest build() {
             return new ProfileRequest(email, firstName, lastName, mobileNumber);
         }
     }

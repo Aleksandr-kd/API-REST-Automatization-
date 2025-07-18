@@ -60,5 +60,4 @@ public class SignUpRequest {
             return new SignUpRequest(username, password, email, firstName, lastName, mobileNumber);
         }
     }
-
 }

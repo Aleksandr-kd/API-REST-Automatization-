@@ -1,6 +1,5 @@
 package api.tests;
 
-
 import api.base.AuthService;
 import api.models.request.SignUpRequest;
 import io.restassured.response.Response;
@@ -25,6 +24,5 @@ public class AccountCreationTest {
 
         Assert.assertEquals(response.asPrettyString(), "User registered successfully!");
         Assert.assertEquals(response.getStatusCode(), 200);
-
     }
 }
