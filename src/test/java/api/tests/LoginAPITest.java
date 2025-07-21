@@ -5,33 +5,17 @@ import api.models.request.LoginRequest;
 import api.models.response.LoginResponse;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-/**
- Assert.assertEquals(loginResponse)
- .satisfies(res -> {
- assertThat(res.getToken())
- .isNotBlank()
- .matches(JWT);
 
- assertThat(res.getType()).isEqualTo(BEARER_TYPE);
- assertThat(res.getId()).isPositive();
- assertThat(res.getUsername()).isEqualTo("uday888");
- assertThat(res.getEmail()).isNotBlank();
-
- assertThat(res.getRoles())
- .hasSize(1)
- .containsExactly(ROLE_USER);
- });
- *
- */
-
+@Listeners(api.listeners.TestListener.class)
 public class LoginAPITest {
 
     @Test(description = "Проверка верификации Login API")
     public void loginTest() {
         AuthService authService = new AuthService();
-        Response response = authService.login(new LoginRequest("uday888", "uday888"));
+        Response response = authService.login(new LoginRequest("uday888","uday888"));
         LoginResponse loginResponse = response.as(LoginResponse.class);
 
         System.out.println(response.asPrettyString());

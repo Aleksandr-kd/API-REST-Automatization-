@@ -13,32 +13,25 @@ import org.testng.annotations.Test;
 public class ReportControllerTest {
 
     @Test(description = "Отчет для пользователя")
-    public void ReportControllerTest() {
+    public void reportControllerTest() {
         AuthService authService = new AuthService();
         Response response = authService.login(new LoginRequest("uday888", "uday888"));
         LoginResponse loginResponse = response.as(LoginResponse.class);
-
-        System.out.println(response.asPrettyString());
+        System.out.println(loginResponse.getToken());
 
         UserReportService userReportService = new UserReportService();
         response = userReportService.getReportPdf(loginResponse.getToken());
-        System.out.println(response.asPrettyString());
-
-        UserReportResponse userReportResponse = response.as(UserReportResponse.class);
-        Assert.assertEquals(userReportResponse.getStatus(), 200);
+        System.out.println(loginResponse.getToken());
 
         ReportRequest reportRequest = new ReportRequest.Builder()
                 .accountNumber("2825515895")
-//                .toDate("18-07-2025")
-//                .fromDate("10-07-2025")
+                .toDate("18-07-2025")
+                .fromDate("10-07-2025")
                 .build();
-//
-//        response = userReportService.getReportPdf(loginResponse.getToken());
-//        System.out.println(response.asPrettyString());
-//
-//
-        userReportResponse = response.as(UserReportResponse.class);
+
+        UserReportResponse userReportResponse = response.as(UserReportResponse.class);
         System.out.println(userReportResponse.getAccountNumber());
+        Assert.assertEquals(userReportResponse.getAccountNumber(), reportRequest.getAccountNumber());
 
 
     }

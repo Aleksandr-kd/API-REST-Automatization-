@@ -11,12 +11,12 @@ public class AccountCreationTest {
     @Test(description = "Верификация пользователя")
     public void createAccountTest() {
         SignUpRequest signUpRequest = new SignUpRequest.Builder()
-                .userName("Alekffsandr")
-                .email("als.dfdas@gmail.com")
-                .firstName("Aleksandr")
-                .password("udaffy777")
-                .lastName("arrrffrr")
-                .mobileNumber("1224567812")
+                .userName("1111111111")
+                .password("1111111111111")
+                .email("aldddd@gmail.com")
+                .firstName("Alldfgddr")
+                .lastName("faadr")
+                .mobileNumber("8884990012")
                 .build();
         AuthService authService = new AuthService();
         Response response = authService.signUp(signUpRequest);

@@ -8,16 +8,20 @@ import api.models.response.UserProfileResponse;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+
 public class GetRequestProfileTest {
 
     @Test(description = "Получение описание профиля пользователя")
     public void getProfileRequest() {
         AuthService authService = new AuthService();
-        Response response = authService.login(new LoginRequest("uday888", "uday888"));
+        Response response = authService.login(new LoginRequest("uday888","uday888"));
         LoginResponse loginResponse = response.as(LoginResponse.class);
-        System.out.println(loginResponse.getToken());
-        UserProfileManagementService userProfileManagementService = new UserProfileManagementService();
+        assertEquals(200, response.getStatusCode());
 
+        System.out.println(loginResponse.getToken());
+
+        UserProfileManagementService userProfileManagementService = new UserProfileManagementService();
         response = userProfileManagementService.getProfile(loginResponse.getToken());
         UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);
         System.out.println(userProfileResponse.getUsername());

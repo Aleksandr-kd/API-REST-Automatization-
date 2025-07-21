@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class UpdateProfileTest {
 
     @Test(description = "Обновление профиля пользователя")
-    public void UpdateProfileTest() {
+    public void updateProfileTest() {
         AuthService authService = new AuthService();
         Response response = authService.login(new LoginRequest("uday888", "uday888"));
         LoginResponse loginResponse = response.as(LoginResponse.class);
@@ -26,13 +26,12 @@ public class UpdateProfileTest {
 
         ProfileRequest profileRequest = new ProfileRequest.Builder()
                 .firstName("Aswer")
-                .lastName("rtyuqwerty")
-                .email("Als@hngmail.com")
-                .mobileNumber("1234567890")
+                .lastName("rtyuqerwy")
+                .email("Als@hnddmail.com")
+                .mobileNumber("1288567890")
                 .build();
 
         response = userProfileManagementService.updateProfile(loginResponse.getToken(), profileRequest);
         System.out.println(response.asPrettyString());
     }
-
 }
