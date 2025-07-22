@@ -4,6 +4,9 @@ import api.base.AuthService;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertListContains;
+
 
 public class ForgotPasswordTest {
 
@@ -11,7 +14,7 @@ public class ForgotPasswordTest {
     public void createAccountTest() {
         AuthService authService = new AuthService();
         Response response = authService.forgotPassword("alsd@mcmc.ru");
-        System.out.println(response.asPrettyString());
-
+        assertEquals(response.jsonPath().getString("message"),
+                "If your email exists in our system, you will receive reset instructions.");
     }
 }

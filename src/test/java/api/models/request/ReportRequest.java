@@ -36,6 +36,15 @@ public class ReportRequest {
         this.toDate = toDate;
     }
 
+    @Override
+    public String toString() {
+        return "ReportRequest{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", fromDate='" + fromDate + '\'' +
+                ", toDate='" + toDate + '\'' +
+                '}';
+    }
+
     public static class Builder {
         private String accountNumber;
         private String fromDate;

@@ -1,18 +1,15 @@
 package api.base;
 
+import api.models.request.ReportRequest;
 import io.restassured.response.Response;
 
 
-public class UserReportService extends BaseService{
-    private static final String BASE_PATH= "/api/reports/statement/";
+public class UserReportService extends BaseService {
+    private static final String BASE_PATH = "/api/reports/statement/";
 
-    public Response getReportPdf(String token) {
+    public Response getReport(String token, ReportRequest params, String url) {
         setAuthToken(token);
-        return getRequest(BASE_PATH + "pdf");
+        return getRequestWithParams(params, BASE_PATH + url);
     }
-
-//    public Response getReportExcel(String token) {
-//        setAuthToken(token);
-//        return getRequest(BASE_PATH + "excel");
-//    }
 }
+

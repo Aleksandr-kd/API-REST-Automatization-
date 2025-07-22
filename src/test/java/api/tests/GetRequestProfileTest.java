@@ -19,11 +19,10 @@ public class GetRequestProfileTest {
         LoginResponse loginResponse = response.as(LoginResponse.class);
         assertEquals(200, response.getStatusCode());
 
-        System.out.println(loginResponse.getToken());
-
         UserProfileManagementService userProfileManagementService = new UserProfileManagementService();
         response = userProfileManagementService.getProfile(loginResponse.getToken());
         UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);
-        System.out.println(userProfileResponse.getUsername());
+
+        assertEquals(userProfileResponse.getUsername(), "uday888");
     }
 }

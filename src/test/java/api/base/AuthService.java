@@ -23,4 +23,5 @@ public class AuthService extends BaseService {
         payload.put("email", emailAddress);
         return postRequest(payload, BASE_PATH + "forgot-password");
     }
+
 }

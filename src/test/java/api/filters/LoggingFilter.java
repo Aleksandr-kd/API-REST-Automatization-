@@ -16,11 +16,9 @@ public class LoggingFilter implements Filter {
     public Response filter(FilterableRequestSpecification requestSpec,
                            FilterableResponseSpecification responseSpec,
                            FilterContext ctx) {
-// Log request
         logRequest(requestSpec);
-// Get response
+
         Response response = ctx.next(requestSpec, responseSpec);
-// Log response
         logResponse(response);
         return response;
     }
