@@ -4,8 +4,6 @@
     <test thread-count="5" name="API Test">
         <classes>
             <class name="api.tests.LoginAPITest">
-            <class name="api.tests.LoginAPITest">
-
             </class>
         </classes>
     </test>
