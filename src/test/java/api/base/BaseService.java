@@ -17,7 +17,7 @@ import static io.restassured.RestAssured.given;
 
 public class BaseService {
 
-    private static final String BASE_URL = "http://64.227.160.186:8080";
+    private static final String BASE_URL = "";
     private final RequestSpecification requestSpecification;
 
     static
