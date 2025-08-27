@@ -6,8 +6,10 @@ on:
   pull_request:
     branches: [ "master" ]
   schedule:
-    - cron: 00 18 * * *
-    - cron: 00 3 * * *
+    # Runs twice: daily at 2 AM UTC and Monday/Thursday at 2 PM UTC в google UTC to convertor(savvytime.com)
+    - cron: 0 3 02 * * *   # Daily at 2 AM UTC
+    - cron: 0 14 * * 1,4  # Monday and Thursday at 2 PM UTC
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
 
 jobs:
   build:

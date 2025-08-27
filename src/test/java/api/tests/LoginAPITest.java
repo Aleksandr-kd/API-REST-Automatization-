@@ -18,11 +18,6 @@ public class LoginAPITest {
         Response response = authService.login(new LoginRequest("uday888","uday888"));
         LoginResponse loginResponse = response.as(LoginResponse.class);
 
-        System.out.println(response.asPrettyString());
-        System.out.println(loginResponse.getToken());
-        System.out.println(loginResponse.getEmail());
-        System.out.println(loginResponse.getId());
-
         Assert.assertNotNull(loginResponse.getToken());
         Assert.assertEquals(loginResponse.getEmail(),"als.dr@gmail.com");
         Assert.assertEquals(loginResponse.getId(), 2079);

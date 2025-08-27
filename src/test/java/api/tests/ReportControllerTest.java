@@ -29,5 +29,3 @@ public class ReportControllerTest {
         Assert.assertEquals(response.getContentType(), "application/pdf", "Неверный Content-Type");
     }
 }
-
-//

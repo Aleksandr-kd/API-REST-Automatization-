@@ -20,7 +20,6 @@ public class AccountCreationTest {
                 .build();
         AuthService authService = new AuthService();
         Response response = authService.signUp(signUpRequest);
-        System.out.println(response.asPrettyString());
 
         Assert.assertEquals(response.asPrettyString(), "User registered successfully!");
         Assert.assertEquals(response.getStatusCode(), 200);
