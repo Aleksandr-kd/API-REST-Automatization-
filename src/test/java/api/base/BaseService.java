@@ -1,16 +1,11 @@
 package api.base;
 
-/**
- * BASE URI   CREATING THE REGUEST    HANDLING THE RESPONSE
- */
-
 import api.filters.LoggingFilter;
 import api.models.request.ReportRequest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-
 
 import static io.restassured.RestAssured.given;
 

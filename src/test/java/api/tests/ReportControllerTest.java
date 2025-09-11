@@ -26,5 +26,7 @@ public class ReportControllerTest {
 
         Assert.assertEquals(response.getStatusCode(), 200, "Статус-код должен быть 200");
         Assert.assertEquals(response.getContentType(), "application/pdf", "Неверный Content-Type");
+
+
     }
 }
