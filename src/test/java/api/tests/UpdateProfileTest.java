@@ -20,7 +20,7 @@ public class UpdateProfileTest {
 
         UserProfileManagementService userProfileManagementService = new UserProfileManagementService();
         response = userProfileManagementService.getProfile(loginResponse.getToken());
-        System.out.println(response.asPrettyString());
+
         UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);
         Assert.assertEquals(userProfileResponse.getUsername(), "uday888");
 
@@ -32,6 +32,7 @@ public class UpdateProfileTest {
                 .build();
 
         response = userProfileManagementService.updateProfile(loginResponse.getToken(), profileRequest);
-        System.out.println(response.asPrettyString());
+        Assert.assertEquals(response.getStatusCode(), 200, "Статус-код должен быть 200");
+
     }
 }

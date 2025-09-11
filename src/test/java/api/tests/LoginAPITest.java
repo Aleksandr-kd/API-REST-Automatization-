@@ -22,6 +22,5 @@ public class LoginAPITest {
         Assert.assertEquals(loginResponse.getEmail(),"als.dr@gmail.com");
         Assert.assertEquals(loginResponse.getId(), 2079);
         Assert.assertEquals(response.getStatusCode(), 200);
-
     }
 }

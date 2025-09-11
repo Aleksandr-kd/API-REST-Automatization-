@@ -22,7 +22,6 @@ public class ReportControllerTest {
                 .accountNumber("2825512895")
                 .build();
 
-
         response = userReportService.getReport(loginResponse.getToken(), reportRequest, "pdf");
 
         Assert.assertEquals(response.getStatusCode(), 200, "Статус-код должен быть 200");
