@@ -18,7 +18,7 @@ public class ReportControllerTest {
         LoginResponse loginResponse = response.as(LoginResponse.class);
 
         UserReportService userReportService = new UserReportService();
-        ReportRequest reportRequest = new ReportRequest.Builder()
+        ReportRequest reportRequest = ReportRequest.builder()
                 .accountNumber("2825512895")
                 .build();
 

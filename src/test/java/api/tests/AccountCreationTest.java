@@ -11,8 +11,8 @@ public class AccountCreationTest {
 
     @Test(description = "Верификация пользователя")
     public void createAccountTest() {
-        SignUpRequest signUpRequest = new SignUpRequest.Builder()
-                .userName("11231")
+        SignUpRequest signUpRequest = SignUpRequest.builder()
+                .username("11231")
                 .password("13dfgdfg1")
                 .email("als.dr@gmail.com")
                 .firstName("erf8gddr")

@@ -23,8 +23,7 @@ public class UpdateProfileTest {
 
         UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);
         Assert.assertEquals(userProfileResponse.getUsername(), "uday888");
-
-        ProfileRequest profileRequest = new ProfileRequest.Builder()
+        ProfileRequest profileRequest = ProfileRequest.builder()
                 .firstName("Aswer")
                 .lastName("rtyuqerwy")
                 .email("Als@hnddmail.com")
