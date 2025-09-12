@@ -12,6 +12,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <base.url>https://swift.techwithjatin.com</base.url>
     </properties>
 
     <build>
@@ -27,6 +28,9 @@
                             ${suite}.xml
                         </suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <base.url>${base.url}</base.url>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
