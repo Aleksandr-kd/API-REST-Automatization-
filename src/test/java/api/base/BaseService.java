@@ -12,7 +12,8 @@ import static io.restassured.RestAssured.given;
 
 public class BaseService {
 
-    private static final String BASE_URL = "";
+//    private static final String BASE_URL = "https://swift.techwithjatin.com";
+    private static final String BASE_URL = "https://swift.techwithjatin.com";
     private final RequestSpecification requestSpecification;
 
     static

@@ -3,25 +3,26 @@ package api.tests;
 import api.base.AuthService;
 import api.models.request.SignUpRequest;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 public class AccountCreationTest {
 
     @Test(description = "Верификация пользователя")
     public void createAccountTest() {
         SignUpRequest signUpRequest = new SignUpRequest.Builder()
-                .userName("112325441")
-                .password("133511")
-                .email("aergferuid@gmail.com")
-                .firstName("erferkgddr")
-                .lastName("ferfr")
-                .mobileNumber("8882342012")
+                .userName("11231")
+                .password("13dfgdfg1")
+                .email("als.dr@gmail.com")
+                .firstName("erf8gddr")
+                .lastName("ferfdfr")
+                .mobileNumber("8822342012")
                 .build();
         AuthService authService = new AuthService();
         Response response = authService.signUp(signUpRequest);
 
-        Assert.assertEquals(response.asPrettyString(), "User registered successfully!");
-        Assert.assertEquals(response.getStatusCode(), 200);
+        assertEquals(response.asPrettyString(), "User registered successfully!");
+        assertEquals(response.getStatusCode(), 200);
     }
 }

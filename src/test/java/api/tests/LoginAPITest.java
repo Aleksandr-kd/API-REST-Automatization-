@@ -19,7 +19,7 @@ public class LoginAPITest {
         LoginResponse loginResponse = response.as(LoginResponse.class);
 
         Assert.assertNotNull(loginResponse.getToken());
-        Assert.assertEquals(loginResponse.getEmail(),"als.dr@gmail.com");
+        Assert.assertEquals(loginResponse.getEmail(),"Als@hnddmail.com");
         Assert.assertEquals(loginResponse.getId(), 2079);
         Assert.assertEquals(response.getStatusCode(), 200);
     }

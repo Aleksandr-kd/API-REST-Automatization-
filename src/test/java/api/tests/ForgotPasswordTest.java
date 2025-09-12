@@ -5,7 +5,6 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertListContains;
 
 
 public class ForgotPasswordTest {
