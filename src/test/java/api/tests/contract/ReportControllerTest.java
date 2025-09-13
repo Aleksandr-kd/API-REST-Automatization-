@@ -8,8 +8,9 @@ import api.models.request.SignUpRequest;
 import api.models.response.LoginResponse;
 import api.testData.TestDataFactory;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 
 public class ReportControllerTest {
@@ -26,7 +27,7 @@ public class ReportControllerTest {
         ReportRequest reportRequest = testData.accountMobileNumber(user);
         response = userReportService.getReport(loginResponse.getToken(), reportRequest, "pdf");
 
-        Assert.assertEquals(response.getStatusCode(), 200, "Статус-код должен быть 200");
-        Assert.assertEquals(response.getContentType(), "application/pdf", "Неверный Content-Type");
+        assertEquals(response.getStatusCode(), 200, "Статус-код должен быть 200");
+        assertEquals(response.getContentType(), "application/pdf", "Неверный Content-Type");
     }
 }

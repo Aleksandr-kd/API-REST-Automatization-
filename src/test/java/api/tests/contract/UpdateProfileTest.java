@@ -9,8 +9,9 @@ import api.models.response.LoginResponse;
 import api.models.response.UserProfileResponse;
 import api.testData.TestDataFactory;
 import io.restassured.response.Response;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 
 public class UpdateProfileTest {
@@ -27,12 +28,12 @@ public class UpdateProfileTest {
         response = userProfileManagementService.getProfile(loginResponse.getToken());
 
         UserProfileResponse userProfileResponse = response.as(UserProfileResponse.class);
-        Assert.assertEquals(userProfileResponse.getUsername(), user.getUsername());
+        assertEquals(userProfileResponse.getUsername(), user.getUsername());
 
         ProfileRequest profileRequest = testData.updateProfile();
 
         response = userProfileManagementService.updateProfile(loginResponse.getToken(), profileRequest);
-        Assert.assertEquals(response.getStatusCode(), 200, "Статус-код должен быть 200");
+        assertEquals(response.getStatusCode(), 200, "Статус-код должен быть 200");
 
     }
 }
