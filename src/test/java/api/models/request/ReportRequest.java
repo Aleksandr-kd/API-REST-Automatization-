@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 @Builder
 public class ReportRequest {
-    private String accountNumber;
+    private String accountMobileNumber;
     private String fromDate;
     private String toDate;
 }

@@ -1,27 +1,29 @@
-package api.tests;
+package api.tests.contract;
 
 import api.base.AuthService;
 import api.base.UserReportService;
 import api.models.request.LoginRequest;
 import api.models.request.ReportRequest;
+import api.models.request.SignUpRequest;
 import api.models.response.LoginResponse;
+import api.testData.TestDataFactory;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ReportControllerTest {
 
-    @Test(description = "Отчет для пользователя")
+public class ReportControllerTest {
+    private final TestDataFactory testData = new TestDataFactory();
+    private final AuthService authService = new AuthService();
+    private final UserReportService userReportService = new UserReportService();
+
+    @Test(description = "Проверка Отчет для пользователя")
     public void reportControllerTest() {
-        AuthService authService = new AuthService();
-        Response response = authService.login(new LoginRequest("uday888", "uday888"));
+        SignUpRequest user = testData.createAccount();
+        Response response = authService.login(new LoginRequest(user.getUsername(), user.getPassword()));
         LoginResponse loginResponse = response.as(LoginResponse.class);
 
-        UserReportService userReportService = new UserReportService();
-        ReportRequest reportRequest = ReportRequest.builder()
-                .accountNumber("2825512895")
-                .build();
-
+        ReportRequest reportRequest = testData.accountMobileNumber(user);
         response = userReportService.getReport(loginResponse.getToken(), reportRequest, "pdf");
 
         Assert.assertEquals(response.getStatusCode(), 200, "Статус-код должен быть 200");

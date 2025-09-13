@@ -37,10 +37,9 @@ public class BaseService {
     }
 
     protected Response getRequestWithParams(ReportRequest payload, String endpoint) {
-
         return requestSpecification
                 .contentType(ContentType.JSON)
-                .queryParam("accountNumber", payload.getAccountNumber())
+                .queryParam("accountNumber", payload.getAccountMobileNumber())
                 .get(endpoint);
     }
 

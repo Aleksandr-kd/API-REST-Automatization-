@@ -15,4 +15,5 @@ public class SignUpRequest {
     private String firstName;
     private String lastName;
     private String mobileNumber;
+    private String address;
 }
